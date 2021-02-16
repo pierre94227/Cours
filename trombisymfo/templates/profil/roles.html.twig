@@ -1,0 +1,28 @@
+{%  extends "base.html.twig" %}
+
+{% block body %}
+<div>
+
+		<div id="profilsHead" class='d-flex flex-row align-items-center justify-content-between container border mt-3 bg-dark text-light col-11'>
+			<h1>Liste des roles</h1>
+			<a href="?page=ajoutProfil" class="button bg-light text-dark pr-2 pl-2">Ajout role</a>
+		</div>
+
+        <table class="table border container col-11">
+        <tr>
+        <th class="text-center border ">#Id</th>
+        <th class="col-7">Nom Role</th>
+        <th class="text-center border pl-4 pr-4">Option</th>
+        </tr>
+        {% for role in roles %}
+        <tr>
+        <td class="text-center border">{{role.id}}</td>
+        <td>{{role.nomRole}}</td>
+        <td class='text-center border col-3'><a class="btn border text-muted" href="{{ path('role_show' , {'id': role.id}) }}">Voir Plus</a></td>
+        </tr>
+
+        {% endfor %}
+        </table>
+
+</div>
+{% endblock  %}
